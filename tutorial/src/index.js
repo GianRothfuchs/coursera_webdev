@@ -2,53 +2,18 @@ import React from 'react' // this refers to a module, can also be a file the use
 import ReactDom from 'react-dom'
 import './index.css' // this is ar ref to a non-js file with relvative path
 
-const books = [
-  {
-    id: 1,
-    img: 'https://via.placeholder.com/150',
-    title: 'Asterix 39: Asterix und der Greif',
-    author: 'Jean-Yves Ferri',
-  },
-  {
-    id: 2,
-    img: 'https://via.placeholder.com/150',
-    title: 'Asterix 40: Asterix und der Wurm',
-    author: 'Jean-Yves Ferri',
-  },
-  {
-    id: 3,
-    img: 'https://via.placeholder.com/150',
-    title: 'Asterix 41: Asterix und der Vogel',
-    author: 'Jean-Yves Ferri',
-  },
-  {
-    id: 4,
-    img: 'https://via.placeholder.com/150',
-    title: 'Asterix 42: Asterix und der Stein',
-    author: 'Jean-Yves Ferri',
-  },
-]
+import { data } from './books'
+
+import Book from './Book' //with default export you can name the import the way you want
 
 function BookList() {
   return (
     <section className='booklist'>
-      {books.map((book) => {
+      {data.map((book) => {
         /* note book= proterty is gone now*/
         return <Book key={book.id} {...book}></Book>
       })}
     </section>
-  )
-}
-
-const Book = (props) => {
-  //console.log(props)
-  const { img, title, author } = props
-  return (
-    <article className='book'>
-      <img src={img} alt='' />
-      <h1>{title}</h1>
-      <h4>{author}</h4>
-    </article>
   )
 }
 

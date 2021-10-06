@@ -3,7 +3,7 @@
 ## React
 
 - [Online Course](https://www.youtube.com/watch?v=4UZrsTqkcW4)
-- [Current](https://youtu.be/4UZrsTqkcW4?t=5519)
+- [Current](https://youtu.be/4UZrsTqkcW4?t=11384)
 - [Workspace](./tutorial/)
 
 ### Setup
@@ -217,6 +217,28 @@ const Book = (props) => {
 
 ### Events
 
+Events are a big topic in React, as they relate to state. Here only a small number (i.e. click and hover) of events is considered. A more extensive list can be found  [here](https://reactjs.org/docs/events.html).
+
+Here are some examples how events are handeled.Note the camel case in onClick is a must. The onClick element is referred to as the attribute and what follows after the = sign is the event handler. The first implementation is a simple inline function. 
+
+```
+	<h1 onClick={() => console.log(title)}>{title}</h1>
+```
+
+Instead of using inline functions it is also possible to set a reference to an event handler. The event itself can also be passed as an argument `e`, for example to get the target that has been clicked.
+```
+	const complexExample = (e,author) => {
+	  console.log(e)
+	  console.log(author)
+	}
+	
+	<button type='button' onClick={() => complexExample(author)}>
+	more complex function
+	</button>
+```
+Whenever the eventhandler has an argument it needs to be encapsulated in an inline function, otherwise it gets executed on render (i.e. on load of the page).
+
+### Import/Export Statements
 
 
 ## Furter Reading
