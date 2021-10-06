@@ -85,7 +85,138 @@ const Book = (props) => {
     </article>
   )
 }
+
+// OR
+
+const Book = (props) => {
+  const {img,title,author} = props;
+  return (
+    <article className='book'>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  )
+}
+
+// OR
+/ object destructuring in js wihtin the functions parameters
+const Book = ({img,title,author} ) => {
+  return (
+    <article className='book'>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  )
+}
+
 ```
+
+Properties can also passed on with so called children.
+
+```
+function BookList() {
+  return (
+    <section className='booklist'>
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      >
+        Description {/*this is a child and can be accessed with the keyword 'children'*/}
+      </Book>
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
+    </section>
+  )
+}
+
+// descructuring using keywork children
+const Book = ({img,title,author} ) => {
+  return (
+    <article className='book'>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+	  {children}
+    </article>
+  )
+}
+
+```
+
+Iterating over a list of book data looks like this.
+
+```
+[ {
+    id: 4,
+    img: 'https://via.placeholder.com/150',
+    title: 'Asterix 42: Asterix und der Stein',
+    author: 'Jean-Yves Ferri',
+  },
+  ...
+]
+
+
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book, index) => {
+        /*key must be provided as React needs to 
+         uniquely indentify the componenets
+         sloppy way:
+         return <Book key={index} book={book}></Book>
+        */
+        return <Book key={book.id} book={book}></Book>
+      })}
+    </section>
+  )
+}
+
+const Book = (props) => {
+  //console.log(props)
+  const { img, title, author } = props.book
+  return (
+    <article className='book'>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  )
+}
+
+// OR using spread operator ...
+
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        /* note book= proterty is gone now*/
+        return <Book key={book.id} {...book}></Book>
+      })}
+    </section>
+  )
+}
+
+const Book = (props) => {
+  //console.log(props)
+  const { img, title, author } = props
+  return (
+    <article className='book'>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  )
+}
+```
+
+### Events
+
 
 
 ## Furter Reading

@@ -2,43 +2,52 @@ import React from 'react' // this refers to a module, can also be a file the use
 import ReactDom from 'react-dom'
 import './index.css' // this is ar ref to a non-js file with relvative path
 
-const firstBook = {
-  img: 'https://via.placeholder.com/150',
-  title: 'Asterix 39: Asterix und der Greif',
-  author: 'Jean-Yves Ferri',
-}
-const secondBook = {
-  img: 'https://via.placeholder.com/150',
-  title: 'Asterix 40: Asterix und der Wurm',
-  author: 'Jean-Yves Ferri',
-}
+const books = [
+  {
+    id: 1,
+    img: 'https://via.placeholder.com/150',
+    title: 'Asterix 39: Asterix und der Greif',
+    author: 'Jean-Yves Ferri',
+  },
+  {
+    id: 2,
+    img: 'https://via.placeholder.com/150',
+    title: 'Asterix 40: Asterix und der Wurm',
+    author: 'Jean-Yves Ferri',
+  },
+  {
+    id: 3,
+    img: 'https://via.placeholder.com/150',
+    title: 'Asterix 41: Asterix und der Vogel',
+    author: 'Jean-Yves Ferri',
+  },
+  {
+    id: 4,
+    img: 'https://via.placeholder.com/150',
+    title: 'Asterix 42: Asterix und der Stein',
+    author: 'Jean-Yves Ferri',
+  },
+]
 
 function BookList() {
   return (
     <section className='booklist'>
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      />
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        author={secondBook.author}
-      />
+      {books.map((book) => {
+        /* note book= proterty is gone now*/
+        return <Book key={book.id} {...book}></Book>
+      })}
     </section>
   )
 }
 
 const Book = (props) => {
-  console.log(props)
+  //console.log(props)
+  const { img, title, author } = props
   return (
     <article className='book'>
-      <img src={props.img} alt='' />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-
-      {/* it is also possible to log in jsx console.log(props)*/}
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   )
 }
