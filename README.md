@@ -10,7 +10,7 @@
 
 The setup process is described in lengthy detail [here](https://reactjs.org/docs/create-a-new-react-app.html). The fast way to setup a new project is the following:
 
-`````javascript
+```javascript
 npx create-react-app my-app
 cd my-app
 npm start
@@ -22,7 +22,7 @@ The dev server can be spinned up by doing `npm start`. This is starts whatever i
 
 A react componenet can be build using React elements or using JSX. JSX is perferred as React elements become messy, quite quickly:
 
-````javascript
+```javascript
 // React componenet two versions
 // JSX version
 function Greeting() {
@@ -48,7 +48,7 @@ JSX is a quasi html code where a couple of rules apply.
 
 Nested React components
 
-````javascript
+```javascript
 function Greeting() {
  return (
   <div>
@@ -91,8 +91,3 @@ const Book = (props) => {
 ## Furter Reading
 
 Brushing up [Javascript](https://www.youtube.com/c/codingaddict) where the Javascript Nuggets are most helpful.
-
-```
-
-```
-`````
