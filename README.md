@@ -3,8 +3,11 @@
 ## React
 
 - [Online Course](https://www.youtube.com/watch?v=4UZrsTqkcW4)
-- [Current](https://youtu.be/4UZrsTqkcW4?t=11384)
-- [Workspace](./tutorial/)
+- [Current](https://youtu.be/4UZrsTqkcW4?t=18427)
+- [React Tutorial](./tutorial/)
+- [Advanced React](./react-advanced-2020/)
+
+## Tutorial
 
 ### Setup
 
@@ -239,6 +242,87 @@ Instead of using inline functions it is also possible to set a reference to an e
 Whenever the eventhandler has an argument it needs to be encapsulated in an inline function, otherwise it gets executed on render (i.e. on load of the page).
 
 ### Import/Export Statements
+
+## Advanced React
+
+[Video 3:32:36](https://youtu.be/4UZrsTqkcW4?t=12756)
+
+### States
+
+#### Why Using States?
+
+[Code File](./react-advanced-2020/src/tutorial/1-useState/setup/1-error-example.js)
+
+One reason to use state is to trigger a re-render of a page once the user triggered an event. The following example shows the problem. The event handler `handleClick` updates the value of `{title}` but since the page is not re-rendered this will not change the displayed title.
+
+```
+
+const ErrorExample = () => {
+  let title = 'random title'
+  const handleClick = () => {
+    title = 'hello people'
+    console.log(title)
+    // this will change the title but it
+    // will not be visible on the page as
+    // it does not trigger a re-render
+  }
+
+  return (
+    <React.Fragment>
+      <h2>{title}</h2>
+      <button type='button' className='btn' onClick={handleClick}>
+        change Title
+      </button>
+    </React.Fragment>
+  )
+}
+
+```
+
+#### Basics
+
+A central element of statefullness is the `useState` hook, which is a function. It takes one argument which can be considered a default vlaue and it gives two outputs first the argument and second a function. Please note the naming of the `useState` outputs, as it follows a naming convention.
+
+```
+const [text,setText] =useState('some text')
+```
+
+
+Whenever `setText` is invoked with a new string like 'some new text' the variable `text` will trigger a re-rendering using the new value.
+
+```
+const UseStateBasics = () => {
+  const [text, setText] = useState('random title')
+  const handleClick = () => {
+    setText('helloWorld')
+  }
+
+  return (
+    <React.Fragment>
+      <h1>{text}</h1>
+      <button className='btn' onClick={handleClick}>
+        Change Title
+      </button>
+    </React.Fragment>
+  )
+}
+```
+[Example Code: useState](./react-advanced-2020/src/tutorial/1-useState/setup/3-useState-array.js)
+
+
+In case some elements of an object need to be changed to follwoing statement becomes handy. First all values of the object person are loaded using the sread operator. Then the message is overwritten.
+
+```
+const [person, setPerson] = useState({
+name: 'peter',
+age: 24,
+message: 'blah',
+})
+
+setPerson({ ...person, message: 'hello World' })
+```
+[Example Code: useState & objects](./react-advanced-2020/src/tutorial/1-useState/setup/4-useState-object.js)
+
 
 
 ## Site Deployment
