@@ -241,6 +241,15 @@ Whenever the eventhandler has an argument it needs to be encapsulated in an inli
 ### Import/Export Statements
 
 
+## Site Deployment
+
+A produciton build can be created by using `npm`. The resulting build will be available in the build folder.
+
+```
+npm run build
+```
+
+
 ## Furter Reading
 
 Brushing up [Javascript](https://www.youtube.com/c/codingaddict) where the Javascript Nuggets are most helpful.
