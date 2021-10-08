@@ -280,6 +280,7 @@ const ErrorExample = () => {
 ```
 
 #### Basics
+##### `useState`
 
 A central element of statefullness is the `useState` hook, which is a function. It takes one argument which can be considered a default vlaue and it gives two outputs first the argument and second a function. Please note the naming of the `useState` outputs, as it follows a naming convention.
 
@@ -323,6 +324,10 @@ setPerson({ ...person, message: 'hello World' })
 ```
 [Example Code: useState & objects](./react-advanced-2020/src/tutorial/1-useState/setup/4-useState-object.js)
 
+##### `useEffect`
+Another usefull hook is `useEffect` which triggers effects to be run after render. The use is showcased in the following code, it also shows the use of a cleanup function.
+
+[Example Code: useEffect & cleanup](./react-advanced-2020/src/tutorial/2-useEffect/setup/2-useEffect-cleanup.js)
 
 
 ## Site Deployment
